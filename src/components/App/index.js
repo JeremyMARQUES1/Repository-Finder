@@ -17,7 +17,7 @@ import MoreResultsButton from 'src/components/MoreResultsButton';
 const App = () => {
   const [inputValue, setInputValue] = useState('');
   const [nbOfResulstPerPage, setnbOfResultsPerPage] = useState(9);
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState({});
   const [isSearchSubmitted, setisSearchSubmitted] = useState(false);
 
   const handleSearchChange = (event) => {
@@ -26,22 +26,31 @@ const App = () => {
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    axios.get(`https://api.github.com/search/repositories?q=${inputValue}&sort=stars&order=desc&page=1&per_page=${nbOfResulstPerPage}`)
+    setisSearchSubmitted(false);
+    setnbOfResultsPerPage(9);
+    axios.get(`https://api.github.com/search/repositories?q=${inputValue}&sort=stars&order=desc&page=1&per_page=9`)
       .then((response) => {
         setSearchResults(response.data);
+      }).catch((error) => {
+        console.log(error);
+      }).finally(() => {
+        setisSearchSubmitted(true);
       });
-    setisSearchSubmitted(true);
   };
 
   const handleMoreResultsClick = () => {
-    setnbOfResultsPerPage(nbOfResulstPerPage + nbOfResulstPerPage);
+    setnbOfResultsPerPage(nbOfResulstPerPage + 9);
   };
 
   const showMoreResults = () => {
-    axios.get(`https://api.github.com/search/repositories?q=${inputValue}&sort=stars&order=desc&page=1&per_page=${nbOfResulstPerPage}`)
-      .then((response) => {
-        setSearchResults(response.data);
-      });
+    if (inputValue) {
+      axios.get(`https://api.github.com/search/repositories?q=${inputValue}&sort=stars&order=desc&page=1&per_page=${nbOfResulstPerPage}`)
+        .then((response) => {
+          setSearchResults(response.data);
+        }).catch((error) => {
+          console.log(error.response.data);
+        });
+    }
   };
 
   useEffect(showMoreResults, [nbOfResulstPerPage]);
