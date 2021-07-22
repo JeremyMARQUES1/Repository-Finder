@@ -43,7 +43,7 @@ const App = () => {
   };
 
   const showMoreResults = () => {
-    if (inputValue) {
+    if (inputValue && nbOfResulstPerPage !== 9) {
       axios.get(`https://api.github.com/search/repositories?q=${inputValue}&sort=stars&order=desc&page=1&per_page=${nbOfResulstPerPage}`)
         .then((response) => {
           setSearchResults(response.data);
