@@ -27,6 +27,7 @@
   font-size: 1.3rem;
   font-weight: bold;
   margin: 20px 20px 10px 20px;
+  word-wrap: break-word;
 }
 
 .card-subtitle {
@@ -37,4 +38,5 @@
 
 .card-description {
   margin: 0 20px 20px 20px;
+  word-wrap: break-word;
 }
