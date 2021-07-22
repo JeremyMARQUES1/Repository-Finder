@@ -1,0 +1,23 @@
+.logo {
+  display: block;
+  width: 25%;
+  margin: 0 auto;
+  padding-top: 20px 0;
+}
+
+.nav {
+  background-color: #FFFFFF;
+  margin: 20px;
+  border-radius: 5px;
+  padding: 20px 0;
+  box-shadow: 1px 1px 5px -4px #000000;
+}
+
+.nav-link {
+  border-right: 1px solid #EBF0F1;
+  padding: 20px;
+}
+
+.nav-link:hover {
+  background-color: #F2F2F2;
+}

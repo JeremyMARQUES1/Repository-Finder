@@ -1,0 +1,36 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  background-color: #FFFFFF;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px -4px #000000;
+  width: 25%;
+}
+
+.card-image {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 20px 0 10px 20px;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: #BDC3C7;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.card-description {
+  margin: 0 20px 20px 20px;
+}
