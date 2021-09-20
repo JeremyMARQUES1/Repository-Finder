@@ -7,3 +7,7 @@ Tech used: React, React-dom, React-router-dom, Scss, Axios, Webpack, Babel.
 Instructions to launch the app:
 - Clone the repo
 - Execute npm i then npm start
+
+Preview: 
+
+![Preview](finder.jpg)
